@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccjxebg10tnjx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6k1vx"]
+size = Vector2(20, 100)
+
+[node name="Wall" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_6k1vx")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+color = Color(0.565461, 0.483173, 0.811603, 1)
+polygon = PackedVector2Array(-10, -50, -10, 50, 10, 50, 10, -50)
+uv = PackedVector2Array(-10, -10, -10, 124, 10, 124, 10, -9)
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="StaticBody2D"]
+vertices = PackedVector2Array(-30, -70, -30, 70, 30, 70, 30, -70)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
