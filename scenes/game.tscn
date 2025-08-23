@@ -1,3 +1,141 @@
-[gd_scene format=3 uid="uid://g87amuibimy4"]
+[gd_scene load_steps=21 format=3 uid="uid://g87amuibimy4"]
+
+[ext_resource type="PackedScene" uid="uid://bl8b2sj7m0ae5" path="res://scenes/Cat.tscn" id="1_cpr0p"]
+[ext_resource type="Texture2D" uid="uid://08frr8e4inaq" path="res://Assets/Sprites/Cat/CatHoverSpriteSheet.png" id="2_j5yw3"]
+[ext_resource type="Texture2D" uid="uid://brveq7vpm48nh" path="res://Assets/Sprites/Cat/CatRunningSpriteSheet.png" id="3_kldst"]
+[ext_resource type="PackedScene" uid="uid://ccjxebg10tnjx" path="res://scenes/Wall.tscn" id="3_s0nni"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8cj0n"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
+normal = Vector2(-0.999406, -0.0344623)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
+distance = -643.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5yw3"]
+atlas = ExtResource("2_j5yw3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kldst"]
+atlas = ExtResource("2_j5yw3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2bpf"]
+atlas = ExtResource("2_j5yw3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lihs"]
+atlas = ExtResource("2_j5yw3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgofq"]
+atlas = ExtResource("3_kldst")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2irst"]
+atlas = ExtResource("3_kldst")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf53h"]
+atlas = ExtResource("3_kldst")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dahhg"]
+atlas = ExtResource("3_kldst")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3so38"]
+atlas = ExtResource("3_kldst")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71axn"]
+atlas = ExtResource("3_kldst")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gee14"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5yw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kldst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2bpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lihs")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgofq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2irst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf53h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dahhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3so38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71axn")
+}],
+"loop": true,
+"name": &"run",
+"speed": 11.0
+}]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_uwrxv"]
+vertices = PackedVector2Array(444, 384, 1115.18, 601.859, 20.9609, 587.133, 384, 384, 321, 292, 321, 152, 384, 244, 1125.8, 19.2422, 444, 244, 261, 292, 19.0313, 45.7578, 261, 152)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 3), PackedInt32Array(7, 1, 0, 8), PackedInt32Array(4, 3, 2, 9), PackedInt32Array(9, 2, 10, 11), PackedInt32Array(11, 10, 7, 5), PackedInt32Array(5, 7, 8, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(9, 36, 11, 597, 1125, 612, 1136, 9)])
 
 [node name="Game" type="Node2D"]
+
+[node name="WorldBounds" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds"]
+position = Vector2(1, 325)
+shape = SubResource("WorldBoundaryShape2D_8cj0n")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBounds"]
+position = Vector2(1150, 330)
+shape = SubResource("WorldBoundaryShape2D_uwrxv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBounds"]
+shape = SubResource("WorldBoundaryShape2D_yqjtg")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBounds"]
+shape = SubResource("WorldBoundaryShape2D_lnu2h")
+
+[node name="Cat" parent="." instance=ExtResource("1_cpr0p")]
+position = Vector2(557, 234)
+
+[node name="AnimatedCatSprite2D" type="AnimatedSprite2D" parent="Cat"]
+sprite_frames = SubResource("SpriteFrames_gee14")
+animation = &"run"
+frame = 1
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_uwrxv")
+
+[node name="Wall" parent="NavigationRegion2D" instance=ExtResource("3_s0nni")]
+position = Vector2(291, 222)
+
+[node name="Wall2" parent="NavigationRegion2D" instance=ExtResource("3_s0nni")]
+position = Vector2(414, 314)
