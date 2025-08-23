@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://g87amuibimy4"]
+[gd_scene load_steps=9 format=3 uid="uid://g87amuibimy4"]
 
 [ext_resource type="PackedScene" uid="uid://bl8b2sj7m0ae5" path="res://scenes/Cat.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ccjxebg10tnjx" path="res://scenes/Wall.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cvd8gkwv08i16" path="res://scenes/AngleVisualizer.tscn" id="3_lnu2h"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8cj0n"]
 normal = Vector2(1, 0)
@@ -49,3 +50,6 @@ position = Vector2(291, 222)
 
 [node name="Wall2" parent="NavigationRegion2D" instance=ExtResource("1_yqjtg")]
 position = Vector2(414, 314)
+
+[node name="AngleVisualizer" parent="." instance=ExtResource("3_lnu2h")]
+position = Vector2(613, 359)
