@@ -17,3 +17,7 @@ config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 [dotnet]
 
 project/assembly_name="zoomies"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
